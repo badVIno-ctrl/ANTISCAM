@@ -87,7 +87,6 @@
         line-height: 1.4;
     }
 
-    /* Оптимизация для вертикального режима */
     @media (orientation: portrait) {
         .header-content {
             padding: 10px;
