@@ -1,0 +1,146 @@
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --header-bg: rgba(0, 0, 0, 0.9);
+    --text-color: #fff;
+    --card-bg: rgba(0, 0, 0, 0.7);
+    --border-color: #444;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.42vw;
+    margin-right: 0.78vw;
+    color: var(--text-color);
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1);
+}
+
+body.dark-theme .nav-item,
+body.dark-theme .theme-toggle {
+    color: #000 !important;
+}
+
+body.dark-theme .theme-toggle svg {
+    fill: #000 !important;
+}
+
+@media (max-width: 768px) {
+    * {
+        font-size: 0.83vw;
+    }
+
+    header {
+        padding: 0.78vw;
+        flex-wrap: wrap;
+        gap: 0.78vw;
+    }
+
+    .logo {
+        font-size: 1.25vw;
+        order: 1;
+    }
+
+    .search-container {
+        order: 3;
+        width: 100%;
+        margin-top: 0.78vw;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.42vw 0.78vw;
+        font-size: 0.73vw;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 3.65vw;
+        right: 0.78vw;
+        background: var(--header-bg);
+        padding: 0.78vw;
+        border-radius: 0.52vw;
+        box-shadow: 0 0.21vw 0.63vw rgba(0,0,0,0.15);
+        flex-direction: column;
+        gap: 0.63vw;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 0.26vw;
+        cursor: pointer;
+        order: 2;
+        padding: 0.42vw;
+    }
+
+    .hamburger span {
+        width: 1.3vw;
+        height: 0.16vw;
+        background: var(--text-color);
+        transition: 0.3s;
+    }
+
+    .cards-container {
+        padding: 1.04vw;
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        max-width: 100%;
+        padding: 1.04vw;
+        margin: 0.42vw 0;
+    }
+
+    .design {
+        display: none;
+    }
+
+    .bubble {
+        display: none;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        bottom: 1.04vw;
+        right: 1.04vw;
+        background: var(--card-bg);
+        border-radius: 50%;
+        padding: 0.63vw;
+        box-shadow: 0 0.21vw 0.63vw rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-input {
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .small-desc {
+        font-size: 0.9em;
+    }
+}
+
+body.dark-theme .nav-item,
+body.dark-theme .theme-toggle {
+    color: #ffffff !important;
+}
+
+body.dark-theme .theme-toggle svg {
+    fill: #ffffff !important;
+}

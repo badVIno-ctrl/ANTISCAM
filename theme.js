@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+    });
+    
+    document.querySelector('.mobile-menu-overlay').addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.querySelector('.mobile-menu-overlay').classList.remove('active');
+    });
 
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
@@ -21,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    if (chrome?.runtime?.onMessage) {
+        chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+          sendResponse({}); 
+          return true;
+        });
+      }
     
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
@@ -35,6 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
-        themeToggle.querySelector('svg').innerHTML = moonIcon;
+        document.querySelector('.theme-toggle svg').innerHTML = moonIcon;
     }
 });

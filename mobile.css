@@ -1,0 +1,130 @@
+/* Мобильная версия */
+@media (max-width: 768px) {
+    * {
+        font-size: 14px;
+    }
+
+    .background-design {
+        display: none;
+    }
+
+    .header-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .left-section, .center-section, .right-section {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .searchBox {
+        width: 100%;
+        max-width: none;
+    }
+
+    .button {
+        width: 140px;
+        height: 50px;
+        font-size: 0.8em;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .card {
+        max-width: 100%;
+        margin: 10px 0;
+        padding: 20px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--header-bg);
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 15px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1000;
+    }
+
+    .hamburger span {
+        background: var(--text-color);
+        transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Адаптивная типографика */
+    .card-title {
+        font-size: 1.3em;
+    }
+
+    .small-desc {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    /* Оптимизация для вертикального режима */
+    @media (orientation: portrait) {
+        .header-content {
+            padding: 10px;
+        }
+        
+        .searchInput {
+            padding: 12px 20px;
+        }
+        
+        .card {
+            border-radius: 12px;
+        }
+    }
+
+    /* Анимация меню */
+    @keyframes slideUp {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0); }
+    }
+
+    .nav-menu.active {
+        animation: slideUp 0.3s ease-out;
+    }
+}
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+}
