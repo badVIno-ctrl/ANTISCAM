@@ -56,3 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.theme-toggle svg').innerHTML = moonIcon;
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('hasVisited')) {
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        continueBtn.addEventListener('click', () => {
+            welcomeScreen.style.display = 'none';
+            document.body.classList.add('loaded');
+            localStorage.setItem('hasVisited', 'true');
+        });
+    } else {
+        document.body.classList.add('loaded');
+    }
+});

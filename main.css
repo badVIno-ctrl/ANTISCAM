@@ -673,3 +673,241 @@ header {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
 }
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+}
+
+.welcome-content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.policy-link {
+    color: #00ff00;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.policy-link:hover {
+    color: #00cc00;
+}
+
+.continue-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.continue-btn:hover {
+    background: #0056b3;
+}
+
+body:not(.loaded) {
+    overflow: hidden;
+}
+
+body.loaded #welcomeScreen {
+    display: none;
+}
+/* Общие стили для свечения */
+.welcome-content h1,
+.welcome-content p,
+.continue-btn {
+  position: relative;
+  isolation: isolate;
+}
+
+.glow-effect {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-effect::before,
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: inherit;
+  filter: blur(10px) url(#unopaq);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.glow-effect::after {
+  filter: blur(4px) url(#unopaq);
+}
+
+.welcome-content:hover .glow-effect::before,
+.welcome-content:hover .glow-effect::after {
+  opacity: 0.5;
+}
+
+/* Специфичные стили для текста */
+.welcome-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Адаптация кнопки */
+.continue-btn {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  background: transparent !important;
+  transition: all 0.3s;
+}
+
+.continue-btn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 20%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 80%
+  );
+  animation: glow-flow 2s infinite;
+}
+
+@keyframes glow-flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+/* Новые стили для текста приветствия */
+.greeting-line {
+    display: block;
+    margin: 0;
+    line-height: 1.3;
+    font-size: 2.2rem;
+}
+
+.hashtag {
+    display: block;
+    color: #00ff88;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+    margin-top: 15px;
+    font-size: 2.8rem;
+}
+
+.welcome-content h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Скрываем элементы шапки на начальном экране */
+.welcome-screen .theme-toggle,
+.welcome-screen .searchBox {
+    display: none !important;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .greeting-line {
+        font-size: 1.8rem;
+    }
+    .hashtag {
+        font-size: 2.2rem;
+    }
+    .welcome-content {
+        padding: 15px;
+    }
+}
+/* Скрываем шапку и элементы на начальном экране */
+body:not(.loaded) header {
+    display: none;
+}
+
+/* Гарантированно скрываем элементы управления даже если они вне шапки */
+body:not(.loaded) .theme-toggle,
+body:not(.loaded) .searchBox {
+    display: none !important;
+}
+
+/* Общие стили для модальных окон */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+    max-width: 600px;
+    width: 90%;
+    color: white;
+    text-align: left;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ff4444;
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.modal-content .highlight-link {
+    color: #ff4444;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal-content .highlight-link:hover {
+    color: #ff0000;
+}
+
+.close-modal {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.close-modal:hover {
+    background: #ff0000;
+}

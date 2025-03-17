@@ -9,6 +9,67 @@
     <link rel="stylesheet" href="dark-responsive.css">
   </head>
 <body>
+  <svg style="position: absolute; width: 0; height: 0;">
+    <filter width="3000%" x="-1000%" height="3000%" y="-1000%" id="unopaq">
+      <feColorMatrix
+        values="1 0 0 0 0 
+              0 1 0 0 0 
+              0 0 1 0 0 
+              0 0 0 3 0"
+      ></feColorMatrix>
+    </filter>
+  </svg>
+
+  <div id="welcomeScreen" class="welcome-screen">
+    
+    <div class="welcome-content">
+        <h1 class="glow-effect">
+            <div class="greeting-line">Здравствуйте!</div>
+            <div class="greeting-line">Мы рады вас приветствовать на сайте</div>
+            <div class="hashtag">#АНТИСКАМ.</div>
+        </h1>
+        <p class="glow-effect">Нажимая на продолжить, вы соглашаетесь с <a href="https://vk.com" target="_blank" class="policy-link glow-effect">политикой сайта</a></p>
+        <button id="continueBtn" class="continue-btn glow-effect">
+            <div class="text">Продолжить</div>
+        </button>
+    </div>
+</div>
+<!-- Модальное окно "О нас" -->
+<div id="aboutUsModal" class="modal">
+  <div class="modal-content">
+    
+      <h2>Кто мы?</h2>
+      <p>
+          «#АНТИСКАМ — это сообщество людей, которые устали от обмана в интернете. Мы не компания и не стартап. Мы — обычные пользователи, столкнувшиеся с мошенничеством и решившие бороться с ним.<br><br>
+          Наша цель — дать вам инструменты, чтобы проверять сомнительные предложения до того, как вы потеряете деньги.<br><br>
+          Присоединяйтесь! Каждая ваша жалоба спасает других.<br>
+          А мы в свою очередь будем пытаться помочь вам!<br><br>
+          P.S. наш телеграм <a href="https://t.me/antiscamVi" target="_blank" class="highlight-link">канал</a>, наш телеграм <a href="https://t.me/antiscamChatVI" target="_blank" class="highlight-link">чат</a>.
+      </p>
+      <button class="close-modal">Закрыть</button>
+  </div>
+</div>
+
+<!-- Модальное окно "О сайте" -->
+<div id="aboutSiteModal" class="modal">
+  <div class="modal-content">
+      <h2>Как это работает?</h2>
+      <p>
+          <strong>Проверка:</strong><br>
+          Введите никнейм, номер или email в поиск → увидите, есть ли жалобы на этого человека/сервис.<br><br>
+          <strong>Жалоба:</strong><br>
+          Заполните форму, прикрепите доказательства → модераторы проверят данные → если всё ок, схема попадёт в базу.<br><br>
+          <strong>Безопасность:</strong><br>
+          — Мы не публикуем полные имена, адреса и паспорта — только обезличенную информацию.<br>
+          — Каждая жалоба проверяется вручную.<br>
+          — Если вас оклеветали — <a href="https://t.me/KaisVIscam" target="_blank" class="highlight-link">напишите нам</a>, и мы удалим данные.<br><br>
+          <strong>Правила:</strong><br>
+          — Запрещены ложные обвинения без доказательств.<br>
+          — Сайт не заменяет полицию! Если вас обманули — обращайтесь в правоохранительные органы.
+      </p>
+      <button class="close-modal">Закрыть</button>
+  </div>
+</div>
     <div class="background-design">
         <div class="design">
             <div class="circle-1 color-border"></div>
@@ -202,9 +263,10 @@
           
           
     </div>
-    
+
 <div class="mobile-menu-overlay"></div>
 <script src="theme.js"></script>
+<script src="modals.js"></script>
 <script src="bubbles.js"></script>
 </body>
 </html>
